@@ -8,8 +8,41 @@
 
 body {
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;          /* Basisgröße */
+    line-height: 1.7;
+    color: #333;           
 }
 
+h1, h2, h3, .yoga-title, .about-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #2946bf;
+    margin-bottom: 0.6em;
+}
+
+h1 { font-size: 3.2rem; }     /* Hero */
+h2 { font-size: 2.4rem; }     /* Haupt-Section-Titel */
+h3 { font-size: 1.8rem; }     /* Box-Titel */
+
+nav a, .btn, .btn-about {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.yoga-title {
+    background: linear-gradient(90deg, #2946bf, #6a4bcf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.8rem;  /* angepasst an neue Hierarchie */
+}
+
+section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2em;
+}
 
 .btn {
     display: inline-block;
@@ -599,4 +632,5 @@ body {
     height:100%;
     border: none;
 }
+
 
