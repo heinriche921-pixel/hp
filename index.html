@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meine Yoga Homepage</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;600&display=swap"
+    rel="stylesheet">
+
 </head>
 
 <body>
@@ -16,8 +19,10 @@
       <a href="#hero" class="nav-logo">Selina Yoga</a>
       <ul class="nav-links">
         <li><a href="#about">Über mich</a></li>
-        <li><a href="#schedule">Wann & Wo</a></li>
         <li><a href="#yoga">Yoga</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#schedule">Wann & Wo</a></li>
+
       </ul>
       <!-- Hamburger Icon -->
       <div class="hamburger">
@@ -49,7 +54,7 @@
   <section id="whatisyoga" class="whatisyoga-glass">
     <div class="container">
       <h2>Was ist Yoga?</h2>
-      <p>
+      <p class="accent-font">
         Yoga ist weit mehr als nur Bewegung – es verbindet Körper, Geist und Atem.
         Durch bewusste Asanas, Atemtechniken und Meditation finden wir innere Ruhe
         und gleichzeitig Kraft. Ob für Entspannung, Beweglichkeit oder Klarheit
@@ -63,10 +68,15 @@
 
   <!-- Über mich Section -->
   <section id="about" class="about">
-     <h2 class="headings">✧ Über mich ✧</h2>
+    <h2 class="headings">✧ Über mich ✧</h2>
     <div class="container">
       <div class="about-image">
         <img src="images/me.jpg" alt="Selina">
+
+        <div class="about-buttons">
+          <a href="#gallery" class="about-btn">Zur Galerie</a>
+          <a href="#yoga" class="about-btn">Zu den Kursen</a>
+        </div>
       </div>
       <div class="about-text about-box">
         <p>
@@ -128,6 +138,31 @@
       </div>
     </div>
   </section>
+
+
+  <!-- Galerie / Bilderkarussell -->
+  <section id="gallery" class="gallery-section">
+    <h2 class="section-title">Galerie</h2>
+    <p class="gallery-intro">
+      Ein Blick in meine Yoga-Welt:
+      Diese Bilder geben dir ein Gefühl für die ruhige Atmosphäre und die fließenden Bewegungen meiner Stunden.
+      Lass dich inspirieren und spüre schon jetzt ein Stück Entspannung.
+    </p>
+
+    <div class="carousel">
+      <button class="prev">&#10094;</button>
+
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="images/gallery1.jpg" alt="Yoga Bild 1"></div>
+        <div class="carousel-slide"><img src="images/gallery2.jpg" alt="Yoga Bild 2"></div>
+        <div class="carousel-slide"><img src="images/gallery3.jpg" alt="Yoga Bild 3"></div>
+        <div class="carousel-slide"><img src="images/gallery4.jpg" alt="Yoga Bild 4"></div>
+      </div>
+
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+
 
   <!-- Wann & Wo Section -->
   <section id="schedule" class="schedule">
@@ -201,39 +236,70 @@
       });
     });
   </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const boxes = document.querySelectorAll(".slide-in");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target); // nur einmal animieren
-      }
-    });
-  }, { threshold: 0.2 }); // 20% sichtbar reicht
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const boxes = document.querySelectorAll(".slide-in");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // nur einmal animieren
+          }
+        });
+      }, { threshold: 0.2 }); // 20% sichtbar reicht
 
-  boxes.forEach(box => observer.observe(box));
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const aboutTitle = document.querySelector(".about-title");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        aboutTitle.classList.add("show");
-        observer.unobserve(aboutTitle);
-      }
+      boxes.forEach(box => observer.observe(box));
     });
-  });
-  observer.observe(aboutTitle);
-});
-</script>
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const aboutTitle = document.querySelector(".about-title");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            aboutTitle.classList.add("show");
+            observer.unobserve(aboutTitle);
+          }
+        });
+      });
+      observer.observe(aboutTitle);
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const prevButton = document.querySelector('.carousel .prev');
+      const nextButton = document.querySelector('.carousel .next');
+
+      let currentIndex = 0;
+
+      function updateSlide(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide(currentIndex);
+      });
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide(currentIndex);
+      });
+
+      /* Optional: Auto-Play alle 5 Sekunden */
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide(currentIndex);
+      }, 5000);
+    });
+  </script>
+
 
 
 </body>
-
 
 </html>
