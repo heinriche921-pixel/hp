@@ -1,822 +1,334 @@
-/* Reset & basic */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    scroll-behavior: smooth;
-    font-family: "Nunito", sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    /* Basisgröße */
-    line-height: 1.7;
-    color: #333;
-}
-
-h1,
-h2,
-h3,
-.yoga-title,
-.about-title {
-    font-family: "Sniglet", system-ui;
-    font-weight: 400;
-    line-height: 1.3;
-    color: #2946bf;
-    margin-bottom: 0.6em;
-}
-
-h1 {
-    font-size: 3.2rem;
-}
-
-/* Hero */
-h2 {
-    font-size: 2.4rem;
-}
-
-/* Haupt-Section-Titel */
-h3 {
-    font-size: 1.8rem;
-}
-
-/* Box-Titel */
-
-nav a,
-.btn,
-.btn-about {
-
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.yoga-title {
-    background: linear-gradient(90deg, #2946bf, #6a4bcf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.8rem;
-    /* angepasst an neue Hierarchie */
-}
-
-section p {
-    font-size: 1.1rem;
-    margin-bottom: 1.2em;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #2946bf;
-    color: #fff4bd;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-
-}
-
-.btn:hover {
-    background-color: #fff4bd;
-    transform: translateY(-3px);
-    color: #2946bf;
-}
-
-.btn-about {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 28px;
-    background-color: #2946bf;
-    /* Blau als Grundfarbe */
-    color: #fff4bd;
-    /* Gelb für Text */
-    font-size: 1.1rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-about:hover {
-    background-color: #fff4bd;
-    /* sanftes Grün beim Hover */
-    color: #2946bf;
-    transform: translateY(-3px);
-}
-
-
-/* 3-Image Hero */
-.hero-multi {
-    height: 60vh;
-    /* 60% of viewport height */
-    position: relative;
-    display: flex;
-}
-
-.hero-multi .hero-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.hero-multi .hero-images img {
-    width: 33.333%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: #fff4bd;
-}
-
-.hero-content p {
-    font-size: 1.4rem;
-    margin-bottom: 30px;
-}
-
-/* Responsive: only one image below 768px */
-@media (max-width: 768px) {
-    .hero-multi .hero-images img {
-        width: 100%;
-        display: none;
-    }
-
-    .hero-multi .hero-images img:first-child {
-        display: block;
-    }
-}
-
-
-.whatisyoga-glass {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 20px;
-    background: #d2ffaa;
-}
-
-.whatisyoga-glass .container {
-
-    justify-content: center;
-    max-width: 900px;
-    padding: 40px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    /* glass effect */
-    backdrop-filter: blur(10px);
-    color: #2946bf;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.whatisyoga-glass h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.whatisyoga-glass p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-}
-
-
-
-
-/* Über mich Section */
-.about {
-    padding: 100px 20px;
-    background-color: #fff4bd;
-    /* Gelb */
-    color: #2946bf;
-}
-
-.about .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    /* sorgt für zentrierte Ausrichtung von Bild + Kasten */
-    flex-wrap: wrap;
-}
-
-.about-box {
-    flex: 1;
-    /* gleiche Gewichtung wie Bild */
-    padding: 40px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.about-title {
-
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #2946bf;
-    /* dein Blau */
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.about-title.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Dekorativer, sanfter Unterstrich */
-.about-title::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #2946bf, #6a4bcf);
-    margin: 12px auto 0 auto;
-    border-radius: 2px;
-}
-
-
-.about-image {
-    flex: 1 1 500px;
-    /* Allow it to grow, shrink, and have a base width of 500px (or more) */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 550px;
-
-    border-radius: 50px;
-    /* Changed from 50% (circle) to 20px (rounded corners) */
-    object-fit: cover;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.about-text {
-    flex: 1 1 500px; /* Allow it to grow, shrink, and have a base width of 500px */
-    font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 700px;
-    /* This max-width should still apply to limit the text block */
-}
-
-.about-text p {
-    margin-bottom: 20px;
-}
-
-.about-text ul {
-    margin: 20px 0;
-    padding-left: 25px;
-    /* klassisches Einrücken */
-    list-style-type: disc;
-    /* klassische Punkte */
-}
-
-.about-text li {
-    margin-bottom: 10px;
-}
-
-.about-list {
-    margin: 20px 0;
-    padding-left: 0;
-    list-style: none;
-    /* Standard Bulletpoints deaktivieren */
-}
-
-.about-list li {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-}
-
-/* Container der Buttons */
-.about-buttons {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Stil der Buttons */
-.about-btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: #2946bf;
-    /* Blau als Grundfarbe */
-    color: #fff4bd;
-    /* Gelb für Text */
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.about-btn:hover {
-    background-color: #d2ffaa;
-    /* sanftes Grün beim Hover */
-    color: #2946bf;
-    transform: translateY(-3px);
-}
-
-
-
-/* Wann & Wo Section */
-.schedule {
-    padding: 100px 20px;
-    background: #d2ffaa;
-    color: #2946bf;
-    /* Blau */
-    text-align: center;
-}
-
-.schedule .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.schedule-box {
-    padding: 40px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    /* halbtransparent statt Weiß */
-    backdrop-filter: blur(8px);
-    /* leichter Glas-Effekt */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-.schedule-box h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #2946bf;
-}
-
-.schedule-box p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.schedule-box .btn {
-    margin: 20px 0;
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #ffc29c;
-    /* Hell Orange */
-    color: #2946bf;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.schedule-box .btn:hover {
-    background-color: #2946bf;
-    /* Blau */
-    color: #fff;
-}
-
-
-/* Yoga Section */
-.yoga {
-    padding: 100px 20px;
-    background: #fdc7d9;
-    color: #2946bf;
-}
-
-.yoga .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    align-items: stretch;
-    /* sorgt dafür, dass alle Boxen gleich hoch werden */
-}
-
-.yoga-box {
-    flex: 1;
-    padding: 30px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    /* Glas-Effekt */
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* gleicht Text-Inhalte aus */
-    min-width: 300px;
-}
-
-.yoga-box h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #2946bf;
-}
-
-.yoga-box p {
-    font-size: 1rem;
-    line-height: 1.6;
-    flex-grow: 1;
-    /* sorgt dafür, dass Texte gleichmäßig Platz nutzen */
-}
-
-
-/* dezenter Glow in Blautönen */
-@keyframes yogaGlow {
-
-    0%,
-    100% {
-        text-shadow: 0 0 10px rgba(41, 70, 191, 0.3),
-            0 0 20px rgba(106, 75, 207, 0.2);
-    }
-
-    50% {
-        text-shadow: 0 0 15px rgba(106, 75, 207, 0.4),
-            0 0 30px rgba(41, 70, 191, 0.3);
-    }
-}
-
-/* leichtes Schweben */
-@keyframes yogaFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-/* Grundzustand: unsichtbar + seitlich versetzt */
-.slide-in {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 1.8s ease, transform 1.8s ease;
-}
-
-/* sobald sichtbar */
-.slide-in.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Optional: abwechselnd von rechts/links für mehr Dynamik */
-.yoga-boxes .yoga-box:nth-child(2).show {
-    transform: translateX(0);
-    /* neutral */
-}
-
-.yoga-boxes .yoga-box:nth-child(2) {
-    transform: translateX(50px);
-    /* startet von rechts */
-}
-
-
-/* Mobile Layout */
-@media (max-width: 767px) {
-    .yoga .container {
-        flex-direction: column;
-    }
-}
-
-
-/* Ensure same height for desktop boxes */
-@media (min-width: 768px) {
-    .yoga-box {
-        min-height: 500px;
-        /* adjust as needed */
-    }
-}
-
-/* Mobile stacked layout */
-@media (max-width: 767px) {
-    .yoga .container {
-        flex-direction: column;
-    }
-}
-
-/* Navbar */
-.navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #2946bf;
-    /* Blau */
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.navbar .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-}
-
-.nav-logo {
-    color: #fff4bd;
-    /* Gelb */
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: #fff4bd;
-    /* Gelb */
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #d2ffaa;
-    /* Grün */
-}
-
-/* Mobile responsiveness */
-@media (max-width: 767px) {
-    .nav-links {
-        display: none;
-        /* Optional: for now, hide on mobile */
-    }
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #fff4bd;
-    /* Gelb */
-    border-radius: 2px;
-}
-
-/* Mobile styling */
-@media (max-width: 767px) {
-    .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #2946bf;
-        /* Blau */
-        flex-direction: column;
-        width: 200px;
-        padding: 20px;
-        display: none;
-        border-radius: 0 0 8px 8px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-}
-
-/* Mobile: Bild oben, Kasten unten, beide vollbreit */
-@media (max-width: 767px) {
-    .about .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about-image img,
-    .about-box {
-        max-width: 100%;
-    }
-}
-
-/* Footer */
-.footer {
-    background-color: #2946bf;
-    /* Blau */
-    color: #fff4bd;
-    /* Gelb */
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.footer h3 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-.footer p {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-}
-
-.footer a {
-    color: #d2ffaa;
-    /* Grün */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer a:hover {
-    color: #ffc29c;
-    /* Orange beim Hover */
-}
-
-.footer-links {
-    margin: 20px 0;
-    font-size: 1rem;
-}
-
-.footer-copy {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.calendly-responsive {
-    position: relative;
-    width: 100%;
-    padding-top: 100%;
-    /* Verhältnis: Höhe = 150 % der Breite  */
-}
-
-.calendly-responsive iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* --- Galerie Sektion --- */
-
-
-
-.gallery-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 20px;
-    background: #fff4bd;
-}
-
-/* Change this to target the intro box specifically, not the section's container */
-/* I'm renaming this to .gallery-intro-box for clarity in the HTML */
-.gallery-intro-box {
-    justify-content: center;
-    /* max-width: 900px; <--- REMOVED THIS LINE */
-    width: 100%;
-    /* Ensure it uses available width */
-    max-width: 1200px;
-    /* New maximum container size */
-    padding: 40px 60px;
-    /* Increased horizontal padding */
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    color: #2946bf;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    /* Stronger shadow */
-    margin-bottom: 50px;
-    /* Increased space below text */
-}
-
-
-
-
-/* --- Karussell Grundlayout --- */
-.carousel {
-    position: relative;
-    max-width: 1000px;
-    /* 2. INCREASED SIZE for more presence */
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 20px;
-    /* ADDED COLORED FRAME */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 8px #d2ffaa;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.6s ease;
-}
-
-.carousel-slide {
-    min-width: 100%;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-/* --- Pfeile --- */
-.carousel button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #2946bf;
-    /* Solid Blue */
-    color: #fff;
-    border: none;
-    font-size: 2.2rem;
-    padding: 10px 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    z-index: 10;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.carousel button:hover {
-    background: #ffc29c;
-    /* Hover to Orange/Pink */
-    color: #2946bf;
-    transform: translateY(-50%) scale(1.05);
-}
-
-.carousel .prev {
-    left: 10px;
-}
-
-.carousel .next {
-    right: 10px;
-}
-
-.carousel-indicators {
-    text-align: center;
-    padding-top: 25px;
-    /* Increased space below the carousel */
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.carousel-indicators .dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 8px;
-    background-color: rgba(41, 70, 191, 0.3);
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.carousel-indicators .dot.active {
-    background-color: #2946bf;
-    transform: scale(1.3);
-    /* Slightly larger active dot */
-}
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Yoga Homepage</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sniglet:wght@400;800&display=swap"
+    rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body>
+  <!-- Sticky Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-logo">Selina Yoga</a>
+      <ul class="nav-links">
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#yoga">Yoga</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#schedule">Wann & Wo</a></li>
+
+      </ul>
+      <!-- Hamburger Icon -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-multi">
+    <div class="hero-images">
+      <img src="images/hero-yoga.jpg" alt="Yoga Bild 1">
+      <img src="images/hero-yoga.jpg" alt="Yoga Bild 2">
+      <img src="images/hero-yoga.jpg" alt="Yoga Bild 3">
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Willkommen</h1>
+        <p>Dein Yoga-Erlebnis beginnt hier</p>
+        <a href="#about" class="btn">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Was ist Yoga Section -->
+  <section id="whatisyoga" class="whatisyoga-glass">
+    <div class="container">
+      <h2>Was ist Yoga?</h2>
+      <p>
+        Yoga ist weit mehr als nur Bewegung – es verbindet Körper, Geist und Atem.
+        Durch bewusste Asanas, Atemtechniken und Meditation finden wir innere Ruhe
+        und gleichzeitig Kraft. Ob für Entspannung, Beweglichkeit oder Klarheit
+        im Alltag: Yoga ist ein Weg zu mehr Achtsamkeit und Balance.
+      </p>
+      <a href="#about" class="btn-about">Mehr über mich</a>
+    </div>
+  </section>
+
+
+
+  <!-- Über mich Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-image">
+        <img src="images/me.jpg" alt="Selina">
+
+        <div class="about-buttons">
+          <a href="#gallery" class="about-btn">Zur Galerie</a>
+          <a href="#yoga" class="about-btn">Zu den Kursen</a>
+        </div>
+      </div>
+      <div class="about-text about-box">
+        <h2>✧ Über mich ✧</h2>
+        <p>
+          Hallo, ich bin Selina – <strong>Yogalehrerin & Gesundheitswissenschaftlerin</strong>.<br>
+          Mit 33 Jahren bringe ich nicht nur meine eigene Leidenschaft für Bewegung mit, sondern auch <strong>fundiertes Wissen</strong>:
+        </p>
+        <ul class="about-list">
+          <li>🌿 Bachelor in Sportökonomie</li>
+          <li>🧘 Master in Prävention und Gesundheitsmanagement (Schwerpunkt Bewegungstherapie/Orthopädie)</li>
+          <li>✨ Lizenzen in Fitness & Gesundheit, Prävention & Gesundheit, Rehasport (Orthopädie & Neurologie)</li>
+          <li>🌸 200h Yoga-Ausbildung bei <a href="https://inneryogatraining.com/">Inneryoga</a>auf Bali</li>
+        </ul>
+        <p>
+Yoga bedeutet für mich mehr als körperliche Bewegung – es ist ein Raum, in dem wir einfach nur <strong>sein dürfen</strong>.
+          Frei von Bewertung. In meinen Stunden möchte ich dir die Möglichkeit geben, den <strong>Alltag loszulassen</strong>, <strong>Stress abzubauen</strong> und wieder mehr <strong>bei dir selbst anzukommen</strong>.<br><br>
+          Ob im fließenden Vinyasa oder im ruhigen Yin: Mein Ziel ist, dass du die Stunde mit einem <strong>guten Gefühl</strong> verlässt – <strong>entspannt, leichter, achtsamer</strong> … und manchmal auch mit einem Lächeln im Gesicht. 🌿✨
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Yoga Section -->
+  <section id="yoga" class="yoga">
+    <div class="container">
+      <div class="yoga-box slide-in">
+        <h3>🌙 Yin & Yang Yoga – 75 Min</h3>
+        <p>Die perfekte Balance aus Aktivität und Entspannung:
+
+          Wir starten mit einer kraftvollen, fließenden Vinyasa-Praxis (Yang) und schließen mit ruhigem, regenerierendem
+          Yin Yoga ab.
+
+          Du spürst deinen Körper, findest deinen Atem und nimmst dir am Ende bewusst Zeit zum Loslassen.
+
+          Ideal für alle, die beides wollen: Bewegung & Stille, Kraft & Sanftheit. ✨</p>
+      </div>
+
+      <div class="yoga-box slide-in">
+        <h3>✨ Yin Yoga – 60 Min</h3>
+        <p>Eine ruhige, meditative Praxis, in der du länger in den einzelnen Positionen verweilst.
+
+          Yin Yoga wirkt tief in das Fasziengewebe und lädt dich ein, loszulassen – körperlich wie mental.
+
+          Perfekt als Ausgleich bei Stress, Verspannung oder einfach als liebevolle Auszeit für dich.
+
+          Auch ideal für Anfänger*innen – es sind keine Vorkenntnisse nötig.</p>
+      </div>
+      <div class="yoga-box slide-in">
+        <h3>🌿 Vinyasa Yoga – 60 Min</h3>
+        <p>Eine fließende Yogastunde, in der Atmung und Bewegung miteinander verbunden werden.
+
+          Wir bauen Schritt für Schritt Kraft, Flexibilität und Balance auf – ganz ohne Leistungsdruck.
+
+          Jede Stunde ist anders – mal ruhig und zentrierend, mal dynamischer und aktivierend.
+
+          Für Anfänger*innen und Geübte geeignet – du passt die Praxis an dich an, nicht umgekehrt.</p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="gallery" class="gallery-section">
+    <div class="gallery-intro-box">
+      <h2>Galerie</h2>
+      <p>
+        Ein Blick in meine Yoga-Welt: Hier fangen wir die <strong>ruhige Atmosphäre</strong>, die <strong>fließenden
+          Bewegungen</strong> und die <strong>kleinen Momente der Achtsamkeit</strong> ein, die meine Stunden so
+        besonders machen. Lass dich inspirieren und spüre schon jetzt ein Stück Entspannung. Blättere durch die Bilder,
+        entdecke dein Lieblingsasana oder erhasche einen Eindruck vom Studio – <strong>deine Matte wartet
+          schon</strong>.
+      </p>
+    </div>
+
+    <div class="carousel">
+      <button class="prev">&#10094;</button>
+
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="images/gallery1.jpg" alt="Yoga Bild 1"></div>
+        <div class="carousel-slide"><img src="images/gallery2.jpg" alt="Yoga Bild 2"></div>
+        <div class="carousel-slide"><img src="images/gallery3.jpg" alt="Yoga Bild 3"></div>
+        <div class="carousel-slide"><img src="images/gallery4.jpg" alt="Yoga Bild 4"></div>
+      </div>
+
+      <button class="next">&#10095;</button>
+    </div>
+    <div class="carousel-indicators">
+      <span class="dot active" data-slide-to="0"></span>
+      <span class="dot" data-slide-to="1"></span>
+      <span class="dot" data-slide-to="2"></span>
+      <span class="dot" data-slide-to="3"></span>
+    </div>
+  </section>
+
+
+
+  <!-- Wann & Wo Section -->
+  <section id="schedule" class="schedule">
+    <div class="container">
+      <div class="schedule-box">
+        <h2>Wann & Wo</h2>
+        <p>📅 <strong>Mittwoch:</strong><br>
+          # 17:00 Uhr Vinyasa Yoga<br>
+          # 18:15 Uhr Yin Yoga</p>
+        <p>📍 Bischwiese 2, in den Räumen der TSG Niefern</p>
+        <p>Dein Platz auf der Matte wartet</p>
+        <p>Komm vorbei, roll die Matte aus und probier’s aus – ich freu mich auf dich!</p>
+        <div class="calendly-responsive">
+          <iframe src="https://calendly.com/yogamitselina" frameborder="0" scrolling="no"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Kontakt -->
+  <footer class="footer">
+    <div class="container">
+      <h3>Kontakt</h3>
+      <p>📧 <a href="mailto:deine.email@domain.de">deine.email@domain.de</a></p>
+      <p>📷 <a href="https://www.instagram.com/yoga.mitselina/" target="_blank">yoga.mitselina</a></p>
+
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a> |
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+
+      <p class="footer-copy">© 2025 Yoga mit Selina</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for all anchor links starting with #
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+  <script>
+    // Hamburger toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Smooth scroll for all anchor links starting with #
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close mobile menu on click
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const boxes = document.querySelectorAll(".slide-in");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // nur einmal animieren
+          }
+        });
+      }, { threshold: 0.2 }); // 20% sichtbar reicht
+
+      boxes.forEach(box => observer.observe(box));
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const aboutTitle = document.querySelector(".about-title");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            aboutTitle.classList.add("show");
+            observer.unobserve(aboutTitle);
+          }
+        });
+      });
+      observer.observe(aboutTitle);
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const prevButton = document.querySelector('.carousel .prev');
+      const nextButton = document.querySelector('.carousel .next');
+      const dots = document.querySelectorAll('.carousel-indicators .dot'); // New: Select dots
+
+      let currentIndex = 0;
+
+      function updateSlide(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update dots
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[index]) {
+          dots[index].classList.add('active');
+        }
+      }
+
+      // Dot click handler
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlide(currentIndex);
+        });
+      });
+
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide(currentIndex);
+      });
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide(currentIndex);
+      });
+
+      /* Optional: Auto-Play alle 5 Sekunden */
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide(currentIndex);
+      }, 5000);
+
+      updateSlide(0); // Initialize the first slide and dot
+    });
+  </script>
+
+
+
+</body>
+
+</html>
