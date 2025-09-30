@@ -513,6 +513,9 @@ section p {
     }
 }
 
+    .about-image, .about-text {
+        flex: 1 1 auto; 
+    }
 
 /* Ensure same height for desktop boxes */
 @media (min-width: 768px) {
@@ -629,6 +632,12 @@ section p {
     .about .container {
         flex-direction: column;
         align-items: center;
+        /* FIX: Reduce vertical gap on mobile from default 50px to 20px */
+        gap: 20px; 
+    }
+
+    .about-image img {
+        max-width: 90%;
     }
 
     .about-image img,
