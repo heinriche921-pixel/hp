@@ -165,6 +165,7 @@ section p {
     }
 }
 
+/* Was ist Yoga Section */
 
 .whatisyoga-glass {
     display: flex;
@@ -175,31 +176,29 @@ section p {
 }
 
 .whatisyoga-glass .container {
-
     justify-content: center;
     max-width: 900px;
-    padding: 40px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    /* glass effect */
-    backdrop-filter: blur(10px);
+    padding: 0;
     color: #2946bf;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .whatisyoga-glass h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
+    font-family: "Caveat Brush", cursive;
 }
 
 .whatisyoga-glass p {
-    font-size: 1.2rem;
+    /* KEY CHANGE: Font size increased from 1.2rem to 1.4rem */
+    font-size: 2rem;
     line-height: 1.7;
+    /* Zusätzlichen Abstand für bessere Lesbarkeit */
+    margin: 0 auto 30px auto;
+    max-width: 800px;
+    /* Textbreite begrenzen, damit er nicht zu lang wird */
+    font-family: "Caveat Brush", cursive;
 }
-
-
-
 
 /* Über mich Section */
 .about {
@@ -216,11 +215,10 @@ section p {
     gap: 50px;
     align-items: center;
     /* sorgt für zentrierte Ausrichtung von Bild + Kasten */
-    flex-wrap: wrap;
 }
 
 .about-box {
-    flex: 1;
+    flex: 1 1 45%;
     /* gleiche Gewichtung wie Bild */
     padding: 40px;
     border-radius: 20px;
@@ -278,7 +276,7 @@ section p {
 }
 
 .about-text {
-    flex: 1 1 500px; /* Allow it to grow, shrink, and have a base width of 500px */
+    flex: 1 1 45%;
     font-size: 1.1rem;
     line-height: 1.7;
     max-width: 700px;
@@ -513,9 +511,10 @@ section p {
     }
 }
 
-    .about-image, .about-text {
-        flex: 1 1 auto; 
-    }
+.about-image,
+.about-text {
+    flex: 1 1 auto;
+}
 
 /* Ensure same height for desktop boxes */
 @media (min-width: 768px) {
@@ -537,7 +536,7 @@ section p {
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: #2946bf;
+    background-color: #d2ffaa;
     /* Blau */
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -552,13 +551,15 @@ section p {
     padding: 15px 20px;
 }
 
-.nav-logo {
-    color: #fff4bd;
-    /* Gelb */
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-decoration: none;
+
+.nav-logo img {
+    height: 100px;
+    /* Adjust this value (e.g., 45px or 50px) to control the logo size */
+    width: auto;
+    display: block;
+    /* Ensures proper rendering and removes baseline space */
 }
+
 
 .nav-links {
     list-style: none;
@@ -567,16 +568,15 @@ section p {
 }
 
 .nav-links a {
-    color: #fff4bd;
-    /* Gelb */
+    color: #2946bf;
     text-decoration: none;
-    font-weight: 500;
     transition: color 0.3s ease;
+    font-weight: 900;
 }
 
 .nav-links a:hover {
-    color: #d2ffaa;
-    /* Grün */
+    color: #ffc29c;
+
 }
 
 /* Mobile responsiveness */
@@ -598,7 +598,7 @@ section p {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: #fff4bd;
+    background-color: #2946bf;
     /* Gelb */
     border-radius: 2px;
 }
@@ -622,6 +622,11 @@ section p {
         display: flex;
     }
 
+    .nav-links.active a {
+        color: #fff4bd;
+        /* Light Yellow/White on Blue background */
+    }
+
     .hamburger {
         display: flex;
     }
@@ -633,7 +638,7 @@ section p {
         flex-direction: column;
         align-items: center;
         /* FIX: Reduce vertical gap on mobile from default 50px to 20px */
-        gap: 20px; 
+        gap: 20px;
     }
 
     .about-image img {
