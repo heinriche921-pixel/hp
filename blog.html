@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Yoga Blog | Selina</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: auto; }
+    h1 { text-align: center; }
+    .post-list { list-style: none; padding: 0; }
+    .post-list li { margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>Yoga Blog</h1>
+  <ul id="blog-list" class="post-list"></ul>
+
+  <script>
+    // Blog-Dateien (nur Dateinamen, Metadaten werden automatisch ausgelesen)
+    const posts = ["thema1.html", "thema2.html", "thema3.html"];
+
+    async function fetchMeta(file) {
+      const res = await fetch(file);
+      const text = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, "text/html");
+
+      return {
+        file,
+        title: doc.querySelector('meta[name="blog-title"]')?.content || file,
+        date: doc.querySelector('meta[name="date"]')?.content || "",
+        author: doc.querySelector('meta[name="author"]')?.content || ""
+      };
+    }
+
+    async function buildList() {
+      const blogList = document.getElementById("blog-list");
+      for (let file of posts) {
+        const meta = await fetchMeta(file);
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <a href="${file}">${meta.title}</a>
+          ${meta.date ? `<br><small>${meta.date} – ${meta.author}</small>` : ""}
+        `;
+        blogList.appendChild(li);
+      }
+    }
+
+    buildList();
+  </script>
+</body>
+</html>
